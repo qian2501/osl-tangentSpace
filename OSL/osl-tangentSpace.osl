@@ -3,7 +3,7 @@ shader oslTangentSpace
     vector direction = vector(0, 1, 0),
     int normalType = 0
         [[
-            string widget = popup,
+            string widget = "popup",
             string options = "0:ShadingNormal|1:GeometricNormal"
         ]],
     output vector tangent = vector(0, 0, 0)
