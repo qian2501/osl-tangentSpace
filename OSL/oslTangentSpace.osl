@@ -4,7 +4,7 @@ shader oslTangentSpace
     int normalType = 0
         [[
             string widget = "popup",
-            string options = "0:ShadingNormal|1:GeometricNormal"
+            string options = "ShadingNormal|GeometricNormal"
         ]],
     output vector tangent = vector(0, 0, 0)
 )
