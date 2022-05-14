@@ -1,0 +1,24 @@
+/* Calculate tangentSpace for a given directional vector.
+ * Can be used for tangent based anisotropical shader.
+ */
+
+shader tangentSpace
+(
+    vector direction = vector(0, 1, 0),
+    int normalType = 0
+    [[
+        string widget = "mapper",
+        string options = "ShadingNormal:0|GeometricNormal:1"
+    ]],
+    output vector tangent = vector(0, 0, 0)
+)
+{
+    if (0 == normalType)
+    {
+        tangent = cross(direction, N);
+    }
+    else if (1 == normalType)
+    {
+        tangent = cross(direction, Ng);
+    }
+}

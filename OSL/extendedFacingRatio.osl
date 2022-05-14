@@ -1,0 +1,25 @@
+/* Produce a value range in [-1, 1] representing how direct a point is facing the given direction.
+ * This is a extended version of facingRatio from Arnold.
+ * Direction is not fixed to camera, and faces facing backwards will produce negative responce.
+ */
+
+shader extendedFacingRatio
+(
+    vector direction = vector(0, 1, 0),
+    int normalType = 0
+    [[
+        string widget = "mapper",
+        string options = "ShadingNormal:0|GeometricNormal:1"
+    ]],
+    output float value = 0.0
+)
+{
+    if (0 == normalType)
+    {
+        value = dot(direction, N);
+    }
+    else if (1 == normalType)
+    {
+        value = dot(direction, Ng);
+    }
+}
